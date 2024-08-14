@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add basic styling for better readability */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .product-form, .product-list, .search-form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0 4px;
+        }
+
+        input[type="text"], input[type="number"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Product Management</h1>
+
+    <div class="product-form">
+        <h2>Add Product</h2>
+        <form id="createProductForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" required>
+
+            <label for="discountPrice">Discount Price:</label>
+            <input type="number" id="discountPrice" name="discountPrice">
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" required>
+
+            <button type="submit">Create Product</button>
+        </form>
+    </div>
+
+    <div class="search-form">
+        <h2>Search Product by ID</h2>
+        <form id="searchProductForm">
+            <label for="searchId">Product ID:</label>
+            <input type="number" id="searchId" name="searchId" required>
+            <button type="submit">Search</button>
+        </form>
+        <div id="searchResult"></div>
+    </div>
+
+    <div class="product-list">
+        <h2>Product List</h2>
+        <button onclick="fetchProducts()">Load Products</button>
+        <ul id="productList"></ul>
+    </div>
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
